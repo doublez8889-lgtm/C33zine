@@ -103,36 +103,17 @@ export default function HomePage() {
             {articles.map((a, i) => (
               <ArticleCard key={a.slug} article={a} index={i} />
             ))}
-            {/* placeholders */}
-            {Array.from({ length: Math.max(0, 6 - articles.length) }).map(
-              (_, i) => {
-                const realIdx = articles.length + i;
-                const folio = String((realIdx + 1) * 12 + 8).padStart(3, "0");
-                return (
-                  <div
-                    key={`ph-${i}`}
-                    className="border-t border-black grid grid-cols-12 gap-3 md:gap-6 py-7 md:py-9 items-baseline opacity-40"
-                  >
-                    <span className="col-span-2 md:col-span-1 font-display text-[18px] md:text-[22px] italic">
-                      {String(realIdx + 1).padStart(2, "0")}.
-                    </span>
-                    <span className="col-span-10 md:col-span-2 font-sans text-[10px] uppercase tracking-[0.18em]">
-                      À paraître
-                    </span>
-                    <h3 className="col-span-12 md:col-span-6 font-display italic font-medium text-[24px] md:text-[32px] leading-[1.15]">
-                      À paraître / 待发布
-                    </h3>
-                    <span className="col-span-9 md:col-span-2 font-sans text-[11px] uppercase tracking-[0.16em] md:text-right">
-                      —
-                    </span>
-                    <span className="col-span-3 md:col-span-1 font-display text-[14px] text-right">
-                      p. {folio}
-                    </span>
-                  </div>
-                );
-              },
-            )}
             <div className="border-t border-black" />
+          </div>
+
+          {/* Editorial stance — a curated first issue, not an unfinished one */}
+          <div className="text-center mt-12 md:mt-16">
+            <p className="font-display italic text-[20px] md:text-[26px] leading-[1.4]">
+              Deux pièces, deux regards.
+            </p>
+            <p className="font-serif text-[15px] md:text-[16px] mt-2 text-neutral-600">
+              两篇,两种凝视。
+            </p>
           </div>
         </div>
       </section>

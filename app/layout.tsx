@@ -38,10 +38,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "C33",
     description:
-      "解码时尚产业与品牌叙事的逻辑,在中法之间的距离与连接里。",
+      "C33 décode les logiques de l'industrie de la mode et des récits de marque, à travers la distance et le lien entre la France et la Chine.",
     url: "https://c33zine.com",
     siteName: "C33",
-    locale: "zh_CN",
+    locale: "fr_FR",
+    alternateLocale: ["zh_CN"],
     type: "website",
   },
 };

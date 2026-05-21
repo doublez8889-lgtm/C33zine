@@ -82,7 +82,10 @@ export default function MentionsLegalesPage() {
             <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
               ISSN
             </h2>
-            <p>ISSN : en cours d&apos;attribution</p>
+            <p>
+              En cours d&apos;attribution auprès du Centre ISSN France
+              (Bibliothèque nationale de France).
+            </p>
           </section>
 
           <section>
@@ -110,9 +113,41 @@ export default function MentionsLegalesPage() {
               Propriété intellectuelle
             </h2>
             <p>
-              © C33 2026. Tous droits réservés. Toute reproduction, même
-              partielle, est soumise à autorisation écrite préalable de
-              l&apos;éditeur.
+              © C33 2026. Tous droits réservés. L&apos;ensemble des contenus
+              publiés sur c33zine.com (textes, images, vidéos, design) est
+              protégé par le droit d&apos;auteur. Toute reproduction, même
+              partielle, sans autorisation écrite préalable de l&apos;éditeur
+              est interdite.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
+              Données personnelles
+            </h2>
+            <p>
+              Conformément au Règlement Général sur la Protection des Données
+              (RGPD) et à la loi Informatique et Libertés, vous disposez
+              d&apos;un droit d&apos;accès, de rectification et de suppression
+              des données vous concernant. Pour exercer ce droit, écrivez à{" "}
+              <a
+                href="mailto:contact@c33zine.com"
+                className="underline underline-offset-4"
+              >
+                contact@c33zine.com
+              </a>
+              .
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
+              Cookies
+            </h2>
+            <p>
+              Ce site n&apos;utilise pas de cookies de tracking publicitaire.
+              Seuls les cookies techniques strictement nécessaires au
+              fonctionnement du site sont déployés.
             </p>
           </section>
         </div>
