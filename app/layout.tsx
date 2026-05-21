@@ -23,6 +23,8 @@ const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
   weight: ["400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
+  adjustFontFallback: false,
+  fallback: ["Bodoni 72", "Didot", "Times New Roman", "serif"],
 });
 
 export const metadata: Metadata = {
