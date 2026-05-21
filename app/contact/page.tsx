@@ -74,7 +74,7 @@ export default function ContactPage() {
           </div>
 
           <div className="text-center font-sans text-[10px] uppercase tracking-[0.22em] text-neutral-600">
-            13 Avenue Haroun Tazieff — 77600 Bussy-Saint-Georges — France
+            Paris — France
           </div>
         </div>
       </div>

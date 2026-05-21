@@ -57,7 +57,7 @@ export default function AboutPage() {
             La rédaction de C33 est assurée par Kairos Zhang, rédactrice
             en chef. La publication est éditée par Yifei ZHANG, directrice
             de la publication, au sein de la maison Lumicome (en cours de
-            constitution), à Bussy-Saint-Georges, France.
+            constitution), à Paris, France.
           </p>
         </div>
       </div>

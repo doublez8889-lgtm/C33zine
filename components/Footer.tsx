@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
         <div className="space-y-1 md:text-center">
           <div>ISSN — en cours d&apos;attribution</div>
-          <div>Bussy-Saint-Georges, France</div>
+          <div>Paris, France</div>
         </div>
         <div className="flex flex-col gap-1 md:items-end">
           <a
