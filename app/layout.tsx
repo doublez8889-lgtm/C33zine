@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Serif_SC } from "next/font/google";
+import { Inter, Noto_Serif_SC, Bodoni_Moda } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -15,6 +15,14 @@ const notoSerifSC = Noto_Serif_SC({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-noto-serif-sc",
+});
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-bodoni",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +50,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN" className={`${inter.variable} ${notoSerifSC.variable}`}>
+    <html
+      lang="zh-CN"
+      className={`${inter.variable} ${notoSerifSC.variable} ${bodoni.variable}`}
+    >
       <body className="min-h-screen flex flex-col">
         <Nav />
         <main className="flex-1">{children}</main>

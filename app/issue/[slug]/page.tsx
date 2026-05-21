@@ -27,33 +27,49 @@ export default function IssuePage({ params }: { params: { slug: string } }) {
 
   return (
     <div>
+      {/* Cover plate */}
       <section className="border-b border-black">
-        <div className="px-6 md:px-10 pt-16 pb-12">
-          <div className="flex justify-between items-start font-sans text-[11px] uppercase tracking-[0.12em] mb-8">
-            <span>Issue N° {issue.number}</span>
-            <span>
-              {issue.season} {issue.year}
-            </span>
-          </div>
-          <h1 className="font-serif text-[64px] md:text-[120px] leading-[0.95] tracking-tight">
-            {issue.title}
-          </h1>
-          <div className="mt-8 font-sans text-[12px] uppercase tracking-[0.1em]">
-            {issue.subtitle}
+        <div className="relative">
+          <div
+            aria-hidden
+            className="aspect-[4/5] md:aspect-[16/9] w-full bg-black"
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-between text-white py-10 md:py-16 px-6 md:px-12 text-center">
+            <div className="w-full flex justify-between font-sans text-[10px] uppercase tracking-[0.22em]">
+              <span>N° {issue.number}</span>
+              <span>
+                {issue.season} · {issue.year}
+              </span>
+            </div>
+            <div>
+              <div className="font-display italic text-[12px] md:text-[14px] tracking-[0.1em] mb-4 md:mb-6">
+                — {issue.subtitle} —
+              </div>
+              <h1 className="font-display font-medium text-[48px] md:text-[112px] leading-[0.95] tracking-[-0.02em]">
+                {issue.title}
+              </h1>
+            </div>
+            <div className="w-full flex justify-between font-sans text-[10px] uppercase tracking-[0.22em]">
+              <span>France / Chine</span>
+              <span>
+                {String(articles.length).padStart(2, "0")} pièces
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 md:px-10 py-12">
-        <div className="flex justify-between items-baseline mb-8">
-          <h2 className="font-sans text-[11px] uppercase tracking-[0.12em]">
-            Sommaire / 目录
+      {/* Sommaire */}
+      <section className="px-6 md:px-10 py-14 md:py-20">
+        <div className="text-center mb-10 md:mb-14">
+          <div className="font-sans text-[10px] uppercase tracking-[0.22em] mb-4">
+            — Sommaire / 目录 —
+          </div>
+          <h2 className="font-display text-[34px] md:text-[48px] leading-[1] tracking-[-0.01em]">
+            Numéro {issue.number}
           </h2>
-          <span className="font-sans text-[11px] uppercase tracking-[0.12em]">
-            {String(articles.length).padStart(2, "0")} articles
-          </span>
         </div>
-        <div>
+        <div className="max-w-[1100px] mx-auto">
           {articles.map((a, i) => (
             <ArticleCard key={a.slug} article={a} index={i} />
           ))}

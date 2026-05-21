@@ -16,6 +16,13 @@ const config: Config = {
           "SimSun",
           "serif",
         ],
+        display: [
+          "var(--font-bodoni)",
+          "Bodoni 72",
+          "Didot",
+          "Times New Roman",
+          "serif",
+        ],
       },
       colors: {
         ink: "#000000",

@@ -8,26 +8,38 @@ export default function ArticleCard({
   article: ArticleMeta;
   index: number;
 }) {
+  const folio = String((index + 1) * 12 + 8).padStart(3, "0"); // pretend page number, e.g. 020, 032
+
   return (
     <Link
       href={`/article/${article.slug}`}
-      className="group block border-t border-black py-6"
+      className="group block border-t border-black"
     >
-      <div className="flex items-baseline gap-6">
-        <span className="font-sans text-[11px] tracking-[0.1em] uppercase shrink-0 w-8">
-          {String(index + 1).padStart(2, "0")}
+      <div className="grid grid-cols-12 gap-3 md:gap-6 py-7 md:py-9 items-baseline">
+        {/* serial */}
+        <span className="col-span-2 md:col-span-1 font-display text-[18px] md:text-[22px] italic">
+          {String(index + 1).padStart(2, "0")}.
         </span>
-        <div className="flex-1 min-w-0">
-          <div className="font-sans text-[11px] tracking-[0.1em] uppercase mb-2">
-            {article.category}
-          </div>
-          <h3 className="font-serif text-[22px] md:text-[26px] leading-[1.25] tracking-tight group-hover:underline underline-offset-4 decoration-1">
-            {article.title}
-          </h3>
-          <div className="font-sans text-[12px] mt-3 uppercase tracking-[0.08em]">
-            {article.author}
-          </div>
-        </div>
+
+        {/* category */}
+        <span className="col-span-10 md:col-span-2 font-sans text-[10px] uppercase tracking-[0.18em]">
+          {article.category}
+        </span>
+
+        {/* title */}
+        <h3 className="col-span-12 md:col-span-6 font-display italic font-medium text-[24px] md:text-[32px] leading-[1.15] tracking-tight group-hover:underline underline-offset-4 decoration-1">
+          {article.title}
+        </h3>
+
+        {/* author */}
+        <span className="col-span-9 md:col-span-2 font-sans text-[11px] uppercase tracking-[0.16em] md:text-right">
+          par {article.author}
+        </span>
+
+        {/* page */}
+        <span className="col-span-3 md:col-span-1 font-display text-[14px] tabular-nums text-right">
+          p. {folio}
+        </span>
       </div>
     </Link>
   );

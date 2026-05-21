@@ -6,18 +6,34 @@ export const metadata: Metadata = {
 
 export default function MentionsLegalesPage() {
   return (
-    <article className="px-6 md:px-10 py-16">
-      <div className="max-w-prose mx-auto">
-        <div className="font-sans text-[11px] uppercase tracking-[0.12em] mb-6">
-          Mentions légales
+    <article>
+      <div className="border-b border-black">
+        <div className="px-4 md:px-8 h-9 flex items-center justify-between font-sans text-[10px] uppercase tracking-[0.18em]">
+          <span>C33 — Ours / 版权页</span>
+          <span className="hidden md:inline font-display italic normal-case tracking-normal">
+            Mentions légales
+          </span>
+          <span>2026</span>
         </div>
-        <h1 className="font-sans font-semibold text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.03em] mb-12">
+      </div>
+
+      <header className="px-6 md:px-10 pt-16 md:pt-24 pb-12 text-center border-b border-black">
+        <div className="font-sans text-[10px] uppercase tracking-[0.22em] mb-6">
+          — Ours —
+        </div>
+        <h1 className="font-display font-medium text-[40px] md:text-[72px] leading-[0.95] tracking-[-0.02em]">
           Mentions légales
         </h1>
+        <p className="font-display italic text-[16px] md:text-[18px] mt-6 max-w-[520px] mx-auto">
+          Conformément à la loi française pour la confiance dans
+          l&apos;économie numérique.
+        </p>
+      </header>
 
-        <div className="space-y-10 font-serif text-[17px] leading-[1.8]">
+      <div className="px-6 md:px-10 py-16">
+        <div className="max-w-[720px] mx-auto grid md:grid-cols-2 gap-x-12 gap-y-12 font-serif text-[16px] leading-[1.8]">
           <section>
-            <h2 className="font-sans text-[11px] uppercase tracking-[0.12em] mb-3">
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
               Éditeur
             </h2>
             <p>
@@ -34,11 +50,12 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="font-sans text-[11px] uppercase tracking-[0.12em] mb-3">
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
               Direction de la publication
             </h2>
             <p>
-              Directrice de la publication : <strong>Yifei ZHANG</strong>
+              Directrice de la publication :{" "}
+              <strong>Yifei ZHANG</strong>
               <br />
               Contact :{" "}
               <a
@@ -51,7 +68,7 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="font-sans text-[11px] uppercase tracking-[0.12em] mb-3">
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
               Publication
             </h2>
             <p>
@@ -62,14 +79,14 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="font-sans text-[11px] uppercase tracking-[0.12em] mb-3">
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
               ISSN
             </h2>
             <p>ISSN : en cours d&apos;attribution</p>
           </section>
 
           <section>
-            <h2 className="font-sans text-[11px] uppercase tracking-[0.12em] mb-3">
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
               Hébergement
             </h2>
             <p>
@@ -89,13 +106,11 @@ export default function MentionsLegalesPage() {
           </section>
 
           <section>
-            <h2 className="font-sans text-[11px] uppercase tracking-[0.12em] mb-3">
+            <h2 className="font-sans text-[10px] uppercase tracking-[0.22em] mb-3 border-b border-black pb-2">
               Propriété intellectuelle
             </h2>
             <p>
-              © C33 2026. Tous droits réservés. L&apos;ensemble des contenus
-              (textes, images, identité visuelle) publiés sur c33zine.com est
-              protégé par le droit d&apos;auteur. Toute reproduction, même
+              © C33 2026. Tous droits réservés. Toute reproduction, même
               partielle, est soumise à autorisation écrite préalable de
               l&apos;éditeur.
             </p>

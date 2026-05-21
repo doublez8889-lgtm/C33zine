@@ -29,48 +29,68 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const issue = getIssueBySlug(article.issue);
 
   return (
-    <article className="px-6 md:px-10 py-12 md:py-16">
-      <div className="max-w-prose mx-auto">
-        {/* Top kicker */}
-        <div className="flex justify-between items-baseline font-sans text-[11px] uppercase tracking-[0.12em] mb-12 border-b border-black pb-4">
+    <article>
+      {/* Folio header — like a printed running header */}
+      <div className="border-b border-black">
+        <div className="px-4 md:px-8 h-9 flex items-center justify-between font-sans text-[10px] uppercase tracking-[0.18em]">
           <Link
             href={`/issue/${article.issue}`}
             className="hover:underline underline-offset-4"
           >
-            Issue N° {article.issue}
+            C33 — Issue N° {article.issue}
           </Link>
-          <span>{article.category}</span>
+          <span className="hidden md:inline font-display italic normal-case tracking-normal">
+            {article.category}
+          </span>
+          <span>
+            {issue ? `${issue.season} ${issue.year}` : ""}
+          </span>
         </div>
+      </div>
 
-        {/* Title */}
-        <header className="mb-12">
-          <h1 className="font-serif text-[36px] md:text-[56px] leading-[1.05] tracking-tight mb-8">
+      {/* Title block — centered, Vogue-style */}
+      <header className="px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-16 text-center border-b border-black">
+        <div className="max-w-[820px] mx-auto">
+          <div className="font-sans text-[10px] uppercase tracking-[0.22em] mb-6">
+            — {article.category} —
+          </div>
+          <h1 className="font-display font-medium text-[40px] md:text-[72px] leading-[1.02] tracking-[-0.02em] mb-8 md:mb-10">
             {article.title}
           </h1>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 font-sans text-[12px] uppercase tracking-[0.08em]">
-            <span>{article.author}</span>
-            {article.date && <span>{article.date}</span>}
+          {article.excerpt && (
+            <p className="font-display italic text-[20px] md:text-[24px] leading-[1.4] max-w-[640px] mx-auto mb-10">
+              {article.excerpt}
+            </p>
+          )}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-sans text-[11px] uppercase tracking-[0.18em]">
+            <span>Par {article.author}</span>
+            {article.date && <span>· {article.date}</span>}
             {issue && (
               <span>
-                {issue.season} {issue.year}
+                · {issue.season} {issue.year}
               </span>
             )}
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Body */}
-        <div className="prose-c33">
+      {/* Body */}
+      <div className="px-6 md:px-10 py-12 md:py-20">
+        <div className="max-w-prose mx-auto prose-c33">
           <MDXRemote source={article.content} />
         </div>
+      </div>
 
-        {/* Back to issue */}
-        <div className="mt-24 pt-8 border-t border-black">
+      {/* Back link */}
+      <div className="px-6 md:px-10 pb-16 border-t border-black pt-8">
+        <div className="max-w-prose mx-auto flex justify-between items-baseline">
           <Link
             href={`/issue/${article.issue}`}
-            className="font-sans text-[12px] uppercase tracking-[0.1em] hover:underline underline-offset-4"
+            className="font-sans text-[11px] uppercase tracking-[0.18em] hover:underline underline-offset-4"
           >
-            ← Retour au sommaire / 返回当期目录
+            ← Retour au sommaire
           </Link>
+          <span className="font-display italic text-[14px]">返回当期目录</span>
         </div>
       </div>
     </article>
