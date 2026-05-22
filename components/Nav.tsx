@@ -4,7 +4,7 @@ import { getCurrentIssue } from "@/lib/issues";
 export default function Nav() {
   const issue = getCurrentIssue();
   return (
-    <header className="border-b border-black">
+    <header lang="fr" className="border-b border-black">
       {/* Utility bar */}
       <div className="border-b border-black">
         <div className="px-4 md:px-8 h-9 flex items-center justify-between font-sans text-[10px] uppercase tracking-[0.18em]">

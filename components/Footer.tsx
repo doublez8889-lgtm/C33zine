@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-black mt-24">
+    <footer lang="fr" className="border-t border-black mt-24">
       {/* Colophon masthead */}
       <div className="border-b border-black">
         <div className="px-4 md:px-8 py-12 md:py-16 text-center">

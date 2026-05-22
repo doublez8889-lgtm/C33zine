@@ -2,8 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getAllArticles, getArticleBySlug } from "@/lib/articles";
+import {
+  getAllArticles,
+  getArticleBySlug,
+  getArticlesByIssue,
+} from "@/lib/articles";
 import { getIssueBySlug } from "@/lib/issues";
+import ArticleCard from "@/components/ArticleCard";
 
 export async function generateStaticParams() {
   return getAllArticles().map((a) => ({ slug: a.slug }));
@@ -38,6 +43,9 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug);
   if (!article) notFound();
   const issue = getIssueBySlug(article.issue);
+  const relatedArticles = getArticlesByIssue(article.issue)
+    .filter((a) => a.slug !== article.slug)
+    .slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -131,6 +139,28 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           <MDXRemote source={article.content} />
         </div>
       </div>
+
+      {/* Continuer la lecture — same-issue articles, for internal linking */}
+      {relatedArticles.length > 0 && (
+        <section className="border-t border-black px-6 md:px-10 py-12 md:py-16">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="text-center mb-8 md:mb-10">
+              <div className="font-sans text-[10px] uppercase tracking-[0.22em] mb-2">
+                — Continuer la lecture / 继续阅读 —
+              </div>
+              {issue && (
+                <div className="font-display italic text-[15px] text-neutral-600">
+                  Dans le numéro {issue.number} · {issue.season} {issue.year}
+                </div>
+              )}
+            </div>
+            {relatedArticles.map((a, i) => (
+              <ArticleCard key={a.slug} article={a} index={i} />
+            ))}
+            <div className="border-t border-black" />
+          </div>
+        </section>
+      )}
 
       {/* Back link */}
       <div className="px-6 md:px-10 pb-16 border-t border-black pt-8">
