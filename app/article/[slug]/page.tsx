@@ -16,10 +16,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const article = getArticleBySlug(params.slug);
   if (!article) return {};
+  const url = `/article/${article.slug}`;
   return {
     title: article.title,
     description: article.excerpt,
     authors: [{ name: article.author }],
+    alternates: { canonical: url },
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      url,
+      type: "article",
+      publishedTime: article.date,
+      authors: [article.author],
+      section: article.category,
+    },
   };
 }
 
@@ -28,8 +39,48 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   if (!article) notFound();
   const issue = getIssueBySlug(article.issue);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    inLanguage: "zh-CN",
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      "@type": "Person",
+      name: article.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "C33",
+      url: "https://c33zine.com",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://c33zine.com/article/${article.slug}`,
+    },
+    articleSection: article.category,
+    isPartOf: issue
+      ? {
+          "@type": "PublicationIssue",
+          issueNumber: issue.number,
+          datePublished: `${issue.year}`,
+          isPartOf: {
+            "@type": "Periodical",
+            name: "C33",
+            issn: undefined,
+          },
+        }
+      : undefined,
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Folio header — like a printed running header */}
       <div className="border-b border-black">
         <div className="px-4 md:px-8 h-9 flex items-center justify-between font-sans text-[10px] uppercase tracking-[0.18em]">

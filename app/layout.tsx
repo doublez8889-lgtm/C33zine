@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   description:
     "C33 décode les logiques de l'industrie de la mode et des récits de marque, à travers la distance et le lien entre la France et la Chine.",
   metadataBase: new URL("https://c33zine.com"),
+  alternates: { canonical: "/" },
   openGraph: {
     title: "C33",
     description:

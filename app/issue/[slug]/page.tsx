@@ -15,8 +15,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const issue = getIssueBySlug(params.slug);
   if (!issue) return {};
+  const title = `Issue N° ${issue.number} — ${issue.title}`;
+  const description = `${issue.subtitle} · ${issue.season} ${issue.year} · Le sommaire complet du numéro ${issue.number} de C33.`;
+  const url = `/issue/${issue.slug}`;
   return {
-    title: `Issue N° ${issue.number} — ${issue.title}`,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url, type: "website" },
   };
 }
 

@@ -15,8 +15,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const cat = getCategoryBySlug(params.slug);
   if (!cat) return {};
+  const title = `${cat.fr} / ${cat.cn}`;
+  const description = `Tous les articles de C33 dans la rubrique ${cat.fr} (${cat.cn}).`;
+  const url = `/category/${cat.slug}`;
   return {
-    title: `${cat.fr} / ${cat.cn}`,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url, type: "website" },
   };
 }
 

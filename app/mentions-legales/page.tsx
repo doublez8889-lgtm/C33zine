@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
+  description:
+    "Mentions légales de C33 — éditeur, directrice de la publication, SIRET, ISSN, hébergement, RGPD.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 export default function MentionsLegalesPage() {

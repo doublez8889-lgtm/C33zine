@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
+  description:
+    "À propos de C33 — une revue indépendante, trimestrielle, bilingue, écrite depuis le pli entre Paris et Shanghai. 关于 C33。",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
